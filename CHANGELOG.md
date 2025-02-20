@@ -1,7 +1,9 @@
 # Changelog
 ## [0.1.2] 2025-02-20
 
-### Updated litesvm to 0.2.0
+### Fixed
+
+Updated litesvm to 0.2.0 [#(#3)](https://github.com/LiteSVM/anchor-litesvm/pull/3)
 
 ## [0.1.1] 2025-01-21
 
