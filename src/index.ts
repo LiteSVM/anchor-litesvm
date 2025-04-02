@@ -70,10 +70,7 @@ class LiteSVMConnectionProxy implements ConnectionInterface {
 function sendWithErr(tx: Transaction | VersionedTransaction, client: LiteSVM) {
 	const res = client.sendTransaction(tx);
 	if (res instanceof FailedTransactionMetadata) {
-		let sigRaw = tx instanceof Transaction ? tx.signature : tx.signatures[0];
-		if ("signature" in sigRaw) {
-			sigRaw = sigRaw.signature as Buffer<ArrayBufferLike>;
-		}
+		const sigRaw = getSigRaw(tx);
 		const signature = bs58.encode(sigRaw);
 		throw new SendTransactionError({
 			action: "send",
@@ -82,6 +79,14 @@ function sendWithErr(tx: Transaction | VersionedTransaction, client: LiteSVM) {
 			logs: res.meta().logs(),
 		});
 	}
+}
+
+function getSigRaw(tx: Transaction | VersionedTransaction) {
+	let sigRaw = tx instanceof Transaction ? tx.signature : tx.signatures[0];
+	if ("signature" in sigRaw) {
+		sigRaw = sigRaw.signature as Buffer<ArrayBufferLike>;
+	}
+	return sigRaw;
 }
 
 export class LiteSVMProvider implements Provider {
@@ -213,8 +218,7 @@ export class LiteSVMProvider implements Provider {
 		}
 		const rawResult = this.client.simulateTransaction(tx);
 		if (rawResult instanceof FailedTransactionMetadata) {
-			const sigRaw =
-				tx instanceof Transaction ? tx.signature : tx.signatures[0];
+			const sigRaw = getSigRaw(tx);
 			const signature = bs58.encode(sigRaw);
 			throw new SendTransactionError({
 				action: "simulate",
