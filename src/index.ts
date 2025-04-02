@@ -84,7 +84,7 @@ function sendWithErr(tx: Transaction | VersionedTransaction, client: LiteSVM) {
 function getSigRaw(tx: Transaction | VersionedTransaction) {
 	let sigRaw = tx instanceof Transaction ? tx.signature : tx.signatures[0];
 	if ("signature" in sigRaw) {
-		sigRaw = sigRaw.signature as Buffer<ArrayBufferLike>;
+		sigRaw = sigRaw.signature as Buffer;
 	}
 	return sigRaw;
 }
