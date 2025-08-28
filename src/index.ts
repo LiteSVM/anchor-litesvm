@@ -245,7 +245,7 @@ export function fromWorkspace(workspacePath: string): LiteSVM {
 	const svm = new LiteSVM();
 	Object.keys(programs).forEach((key) => {
 		const id = programs[key] as string;
-		const programPath = path.join(sbfOutDir, `${key}.so`);
+		const programPath = path.join(sbfOutDir, `${key.replace('-', '_')}.so`);
 		svm.addProgramFromFile(new PublicKey(id), programPath);
 	});
 	return svm;
