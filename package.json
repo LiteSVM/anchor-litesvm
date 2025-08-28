@@ -21,7 +21,7 @@
 		"yarn-deduplicate": "^6.0.2"
 	},
 	"engines": {
-		"node": ">= 10"
+		"node": ">= 20"
 	},
 	"scripts": {
 		"dedup": "yarn-deduplicate yarn.lock",
