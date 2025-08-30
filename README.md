@@ -9,12 +9,6 @@ that enables using both Anchor and LiteSVM with minimal code changes. It does th
 it implements interfaces that require async. If you would like to avoid async tests, you can simply
 use regular `litesvm` without `anchor-litesvm`.
 
-## RPC Compatibility Note
-LitesvmProvider implements the interfaces required by Anchor programs, but does not provide a full RPC connection implementation that other Solana SDKs might expect. While it works seamlessly with Anchor programs as shown in the example below, functions from libraries like `@solana/spl-token` that require a complete RPC implementation (such as `createMint`, `mintTo`, etc.) are not directly compatible.
-
-If you need to use these functions in your tests, you can either use an actual validator (like solana-test-validator), or implement own/mocked versions of these functions that work with LiteSVM's simulated environment.
-
-
 ## Usage
 
 Here's an example using `LitesvmProvider` to test an Anchor program:
