@@ -1,6 +1,6 @@
 {
 	"name": "anchor-litesvm",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"files": [
@@ -38,6 +38,6 @@
 		"@coral-xyz/anchor": "^0.31.1",
 		"@iarna/toml": "^2.2.5",
 		"@solana/web3.js": "^1.98.4",
-		"litesvm": "^0.3.1"
+		"litesvm": "^0.3.3"
 	}
 }
