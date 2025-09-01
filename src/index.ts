@@ -30,7 +30,7 @@ interface ConnectionInterface {
 }
 
 class LiteSVMConnectionProxy implements ConnectionInterface {
-	constructor(private client: LiteSVM) {}
+	constructor(private client: LiteSVM) { }
 	async getAccountInfoAndContext(
 		publicKey: PublicKey,
 		_commitmentOrConfig?: Commitment | GetAccountInfoConfig | undefined,
