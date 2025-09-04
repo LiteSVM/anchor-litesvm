@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.0] 2025-09-04
+
+### Changed
+
+- Use latest LiteSVM and Anchor versions [(#14)](https://github.com/LiteSVM/anchor-litesvm/pull/14)
+
+### Fixed
+
+- Fix program binary name resolution in presence of hyphens [(#9)](https://github.com/LiteSVM/anchor-litesvm/pull/9)
+
 ## [0.1.2] 2025-02-26
 
 ### Fixed
